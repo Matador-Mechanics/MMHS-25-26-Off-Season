@@ -455,7 +455,7 @@ public class MMHS26Lib {
             } else {
                 //failsafe if pose can't be obtained
                 telemetry.addData("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
-                `RobotLog.ii`("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
+                RobotLog.ii("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
                 RobotLog.addGlobalWarningMessage("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
                 if (updatePose) {
                     telemetry.addData("Pinpoint", "Pose Not Updated due to localizer failure");
