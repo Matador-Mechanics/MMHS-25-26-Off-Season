@@ -39,6 +39,10 @@ public class HWI { //HWI = Hardware Interface
     }
 
     public void init() {
+        if (isLinear) {
+            
+        } else {
 
+        }
     }
 }
