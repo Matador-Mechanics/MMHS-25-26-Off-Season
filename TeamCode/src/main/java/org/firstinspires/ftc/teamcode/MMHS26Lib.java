@@ -352,7 +352,7 @@ public class MMHS26Lib {
 
         //Outputs a list of AprilTag IDs that the limelight can see
         public static int processLimeLightMotif() {
-            //determines whether or not to run the function
+            //determines whether to run the function
             boolean processTrig = true;
             //array and individual ids
             int id;
@@ -455,7 +455,7 @@ public class MMHS26Lib {
             } else {
                 //failsafe if pose can't be obtained
                 telemetry.addData("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
-                RobotLog.ii("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
+                `RobotLog.ii`("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
                 RobotLog.addGlobalWarningMessage("Limelight", "Failed to localize, defaulting to X:0 Y:0 θ:0");
                 if (updatePose) {
                     telemetry.addData("Pinpoint", "Pose Not Updated due to localizer failure");
