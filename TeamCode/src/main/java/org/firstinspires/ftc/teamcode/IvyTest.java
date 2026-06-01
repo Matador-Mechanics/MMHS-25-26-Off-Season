@@ -3,8 +3,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.pedropathing.ivy.Scheduler;
 
+import com.pedropathing.ivy.Scheduler;
 import static com.pedropathing.ivy.commands.Commands.*;
 import static com.pedropathing.ivy.groups.Groups.*;
 import com.pedropathing.ivy.*;
@@ -30,11 +30,15 @@ public class IvyTest extends OpMode {
 				.setDone(() -> !intakeBump1.isPressed())
 				.setEnd(endCondition -> launcher(0))
 				.requiring(leftLauncher, rightLauncher);
+
+
+
+		Scheduler.schedule(raiseArm);
 	}
 
 	@Override
 	public void loop() {
-
+		Scheduler.execute();
 	}
 	public void launcher(double Power){
 		leftLauncher.setPower(Power);
