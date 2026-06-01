@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp
 public class HWIExampleImlementation extends OpMode {
-    HWI robot = new HWI(this, null);
+    HWI robot = new HWI(this);
 
     @Override
     public void init() {
