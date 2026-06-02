@@ -15,7 +15,9 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 public class IvyTest extends OpMode {
 
 	private DcMotor leftLauncher, rightLauncher;
-	TouchSensor intakeBump1;
+	private TouchSensor intakeBump1;
+
+	private Command raiseArm;
 
 	@Override
 	public void init() {
@@ -25,7 +27,7 @@ public class IvyTest extends OpMode {
 		rightLauncher = hardwareMap.get(DcMotor.class, "rightLauncher");
 		intakeBump1 = hardwareMap.get(TouchSensor.class, "intakeBump1");
 
-		Command raiseArm = Command.build()
+		raiseArm = Command.build()
 				.setExecute(() -> launcher(0.5))
 				.setDone(() -> !intakeBump1.isPressed())
 				.setEnd(endCondition -> launcher(0))
@@ -39,9 +41,16 @@ public class IvyTest extends OpMode {
 	@Override
 	public void loop() {
 		Scheduler.execute();
+		isScheduled(raiseArm);
+
 	}
-	public void launcher(double Power){
+	private void launcher(double Power){
 		leftLauncher.setPower(Power);
 		rightLauncher.setPower(Power);
+	}
+	private void isScheduled(Command command) {
+		if (command.isScheduled()) {
+			telemetry.addData(command.toString(), command.isScheduled());
+		}
 	}
 }
